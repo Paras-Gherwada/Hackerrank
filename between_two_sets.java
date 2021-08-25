@@ -35,12 +35,17 @@ class Result {
                     ++hit_counter_a;
             }
             
+            if(hit_counter_a != a.size()){
+                ++start_elem;
+                continue;
+            }
+            
             for(int num : b){
                 if((num % start_elem) == 0)
                     ++hit_counter_b;
             }
             
-            if((hit_counter_a == a.size()) && (hit_counter_b == b.size()))
+            if(hit_counter_b == b.size())
                 ++count_of_numbers; 
             
             ++start_elem;
@@ -77,4 +82,3 @@ public class Solution {
         bufferedWriter.close();
     }
 }
-
