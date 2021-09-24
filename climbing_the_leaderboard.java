@@ -11,7 +11,6 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 class Result {
-
     public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
         List<Integer> rank_list = new ArrayList<>();
         ranked = ranked.stream().distinct().collect(Collectors.toList());
@@ -25,8 +24,7 @@ class Result {
                 --idx;
             }
             rank_list.add(idx+2);
-        }
-        
+        } 
         return rank_list;
     }
 }
