@@ -13,15 +13,14 @@ import static java.util.stream.Collectors.toList;
 class Result {
     public static String angryProfessor(int k, List<Integer> a) {
     // Write your code here
-        int early, late;
-        early = late = 0;
+        int early = 0;
         
         for(int arrival_time : a) {
-            if(arrival_time > 0) ++late;
-            else ++early;
+            if(arrival_time <= 0) ++early;
+            if(early >= k) return "NO";
         }
         
-        return (k > early)? "YES" : "NO";
+        return "YES";
     }
 }
 
