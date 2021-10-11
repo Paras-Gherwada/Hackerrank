@@ -14,14 +14,17 @@ import static java.util.stream.Collectors.toList;
 class Result {
 
     public static List<Integer> missingNumbers(List<Integer> arr, List<Integer> brr) {
-        int max = Collections.max(arr) > Collections.max(brr) ? Collections.max(arr) : Collections.max(brr);
-        int[] duplicates = new int[max + 1];
-        for(int val : arr) ++duplicates[val];
-        for(int val : brr) --duplicates[val];
+        int min = Collections.min(arr);
+        if(min > Collections.min(brr))
+            min = Collections.min(brr);
+            
+        int[] duplicates = new int[100];
+        for(int val : arr) ++duplicates[val - min];
+        for(int val : brr) --duplicates[val - min];
             
         List<Integer> result = new ArrayList<>();
-        for(int idx = 0;  idx <= max; ++idx)
-            if(duplicates[idx] != 0) result.add(idx);
+        for(int idx = 0;  idx < 100; ++idx)
+            if(duplicates[idx] != 0) result.add(idx + min);
             
         return result;        
     }
