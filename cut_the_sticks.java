@@ -30,11 +30,11 @@ class Result {
             idx = 0;
             
             while(idx < arr.size()) {
-                arr.set(idx, arr.get(idx) - smallest_stick);
-                if(arr.get(idx) == 0) {
+                if(arr.get(idx) == smallest_stick) {
                     arr.remove(idx);
                     continue;
                 }
+                arr.set(idx, arr.get(idx) - smallest_stick);
                 ++idx;
             }
         } 
